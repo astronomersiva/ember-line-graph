@@ -5,6 +5,8 @@ ember-line-graph is a tiny(1.74kb gzipped), zero-dependency ember-addon to draw 
 
 It uses SVGs to create charts so it is scalable and supports animations and gradients.
 
+[Demo](https://astronomersiva.github.io/ember-line-graph/)
+
 Installation
 ------------------------------------------------------------------------------
 
