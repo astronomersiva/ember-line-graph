@@ -1,0 +1,52 @@
+<svg
+  width="{{svgWidth}}"
+  height="{{svgHeight}}"
+  stroke-width="{{strokeWidth}}"
+  stroke-opacity="{{strokeOpacity}}"
+  stroke-linecap="{{strokeLinecap}}"
+  stroke-dasharray="{{strokeDasharray}}"
+  style="padding: {{padding}}"
+  viewBox="0 0 300 75">
+
+  <defs>
+    <linearGradient id="ember-line-graph-{{graphId}}" x1="0%" y1="0%" x2="0%" y2="100%">
+      {{#each gradientColors as |color|}}
+        <stop offset="{{color.offset}}" stop-color="{{color.code}}"></stop>
+      {{/each}}
+    </linearGradient>
+  </defs>
+
+  <path
+    style="{{style}}"
+    id="ember-line-graph-path-{{graphId}}"
+    fill="none"
+    stroke="url(#ember-line-graph-{{graphId}})"
+    d="{{dataPoints}}"/>
+
+</svg>
+
+{{#if animation}}
+  <style>
+    @keyframes ember-line-animation-{{graphId}} {
+      0% {
+        stroke-dasharray: {{pathLength}};
+        stroke-dashoffset: {{pathLength}};
+      }
+      100% {
+        stroke-dasharray: {{pathLength}};
+        stroke-dashoffset: 0;
+      }
+      100% {
+        stroke-dashoffset: '';
+        stroke-dasharray: '';
+      }
+    }
+
+    @keyframes ember-line-animation-cleanup-{{graphId}} {
+      to {
+        stroke-dasharray: '';
+        stroke-dashoffset: '';
+      }
+    }
+  </style>
+{{/if}}

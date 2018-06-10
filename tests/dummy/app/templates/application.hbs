@@ -1,3 +1,89 @@
-<h2 id="title">Welcome to Ember</h2>
+<section class="page-header">
+  <h1 class="project-name">ember-line-graph</h1>
+  <h2 class="project-tagline">ember-line-graph is a tiny(1.74kb gzipped), zero-dependency ember-addon to draw line-charts.</h2>
+  <a href="https://github.com/astronomersiva/ember-line-graph" class="btn">View on GitHub</a>
+</section>
 
-{{outlet}}
+<section class="main-content">
+  <div>
+    {{line-graph
+      width="80%"
+      type="smooth"
+      animation=shouldAnimate
+      animationDuration=2500
+      points=points
+      colors=gradient}}
+  </div>
+
+  <h3>Basic Example</h3>
+  <div class="language-js highlighter-rouge">
+    <div class="highlight">
+      <pre class="highlight">
+        &#123;&#123;line-graph
+            points=points
+            colors="#159957"&#125;&#125;
+      </pre>
+    </div>
+    <br>
+    <div>
+      {{line-graph
+        points=points
+        colors="#159957"}}
+    </div>
+  </div>
+
+  <h3>Animated Graph</h3>
+  <div class="language-js highlighter-rouge">
+    <div class="highlight">
+      <pre class="highlight">
+        &#123;&#123;line-graph
+            type="smooth"
+            <strong>animation=true</strong>
+            points=points&#125;&#125;
+      </pre>
+    </div>
+    <br>
+    <div>
+      {{line-graph
+        type="smooth"
+        animation=shouldAnimate
+        points=points}}
+    </div>
+  </div>
+
+  <h2>Options</h2>
+
+  <ul>
+    <li><strong>points</strong> - an array of values, example - <code>[1, 10, 45, 3, 4, 6]</code>.</li>
+
+    <li><strong>strokeWidth</strong> - width of the SVG path stroke.</li>
+
+    <li><strong>strokeOpacity</strong> - opacity of the line in the chart. A number between 0 and 1.</li>
+
+    <li><strong>strokeLinecap</strong> - Specifies the ending style of the line path. One of <code>butt</code>, <code>round</code> or <code>square</code>.</li>
+
+    <li><strong>strokeDasharray</strong> - Controls the pattern of dashes and gaps used to stroke paths. Refer <a href="https://developer.mozilla.org/en-US/docs/Web/SVG/Attribute/stroke-dasharray">MDN Docs</a>. Not recommended to use this with animation as the animation will first draw a undashed path and the chart will then turn to dashes.</li>
+
+    <li><strong>type</strong> - <code>line</code>(default) or <code>smooth</code>.</li>
+
+    <li><strong>smoothness</strong> - a number between 1 and 10 to determine the curve around the chart's points. Applicable only when <code>type</code> is <code>smooth</code>.</li>
+
+    <li><strong>colors</strong> - A color or an array of colors for defining the chart's colors. A color can be any valid CSS color value.</li>
+
+    <li><strong>animation</strong> - A boolean to specify if the path should be animated from left to right.</li>
+
+    <li><strong>animationDuration</strong> - A number(in ms) to specify the duration for the animation.</li>
+
+    <li><strong>animationTimingFunction</strong> - Any valid CSS <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/animation-timing-function">animation-timing-function</a> for the animation.</li>
+
+    <li><strong>width</strong> - A number to specify the width of the chart.</li>
+
+    <li><strong>height</strong> - A number to specify the height of the chart. Optional. Defaults to <code>width/4</code>.</li>
+
+    <li><strong>padding</strong> - A number to specify padding for the chart inside the SVG so that lines are not cut at the edges. Optional.</li>
+    </ul>
+
+  <footer class="site-footer">
+    <span class="site-footer-owner"><a href="https://github.com/pages-themes/cayman">cayman</a> is maintained by <a href="https://github.com/pages-themes">pages-themes</a>.</span>
+  </footer>
+</section>
