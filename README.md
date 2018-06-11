@@ -1,4 +1,4 @@
-ember-line-graph
+ember-line-graph [![Build Status](https://travis-ci.org/astronomersiva/ember-line-graph.svg?branch=master)](https://travis-ci.org/astronomersiva/ember-line-graph)
 ==============================================================================
 
 ember-line-graph is a tiny(1.74kb gzipped), zero-dependency ember-addon to draw line-charts.
