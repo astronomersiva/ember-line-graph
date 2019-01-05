@@ -25,11 +25,10 @@ export default Component.extend({
     let { length } = colors;
     let cutoff = length - 1 || 1;
     return colors.map((color, index) => {
-      let gradientColor = {};
-      gradientColor.code = color;
-      gradientColor.offset = index / cutoff;
-
-      return gradientColor;
+      return {
+        code: color,
+        offset: index/cutoff
+      };
     });
   }),
   dataPoints: computed('points', 'type', 'smoothness', function() {

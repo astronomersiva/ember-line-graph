@@ -12,6 +12,6 @@ module('Integration | Component | line-graph', function(hooks) {
 
     await render(hbs`{{line-graph}}`);
 
-    assert.equal(this.element.textContent.trim(), '');
+    assert.dom(this.element).hasText('');
   });
 });

@@ -1,1 +1,1 @@
-export { default } from 'ember-trend/components/line-graph';
+export { default } from 'ember-line-graph/components/line-graph';
