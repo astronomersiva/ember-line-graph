@@ -50,7 +50,8 @@ const getCoordinates = (data) => {
   // breaking changes).
   if (boundariesY.min === boundariesY.max) {
     // eslint-disable-next-line no-param-reassign
-    normalizedData.x.y += 0.0001;
+    normalizedData[0].x += 0.0001;
+    normalizedData[0].y += 0.0001;
   }
 
   return normalizedData;
