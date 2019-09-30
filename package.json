@@ -1,6 +1,6 @@
 {
   "name": "ember-line-graph",
-  "version": "1.1.1",
+  "version": "1.2.0",
   "description": "ember-line-graph is a tiny(1.74kb gzipped), zero-dependency ember-addon to draw line-charts.",
   "keywords": [
     "ember-addon"
