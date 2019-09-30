@@ -30,7 +30,10 @@ Usage
   animationTimingFunction="ease-in"
   width=500
   height=125
-  padding=10}}
+  padding=10
+  minY=0.5
+  maxY=50
+  }}
 ```
 
 * **points** - an array of values, example - `[1, 10, 45, 3, 4, 6]`.
@@ -47,6 +50,7 @@ Usage
 * **width** - A number to specify the width of the chart.
 * **height** - A number to specify the height of the chart. Optional. Defaults to `width/4`.
 * **padding** - A number to specify padding for the chart inside the SVG so that lines are not cut at the edges. Optional.
+* **minY** & **maxY** - Set the limits of the y axis. If these are undefined, they default to the smallest and largest data points respectively, which means the data is scaled to fit the graph vertically.
 
 
 

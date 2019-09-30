@@ -7,6 +7,8 @@ export default Component.extend({
   layout,
   strokeWidth: 2,
   type: 'line',
+  minY: undefined,
+  maxY: undefined,
   svgWidth: computed('width', function() {
     return this.getWithDefault('width', '100%');
   }),
@@ -36,14 +38,16 @@ export default Component.extend({
       type,
       points = [],
       smoothness = 2,
-    } = this.getProperties('points', 'type', 'smoothness');
+      minY,
+      maxY
+    } = this.getProperties('points', 'type', 'smoothness', 'minY', 'maxY');
 
     if (points.length < 2) {
       return;
     }
 
     smoothness = 0.1 + (smoothness / 100);
-    return path({ points, type, smoothness });
+    return path({ points, type, smoothness, minY, maxY });
   }),
   style: computed('animation', 'animationDuration', 'animationTimingFunction', function() {
     let {

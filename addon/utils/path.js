@@ -9,7 +9,7 @@ const normalize = ({ value, min, max, scaleMin, scaleMax }) => {
   return scaleMin + (value - min) * (scaleMax - scaleMin) / (max - min);
 };
 
-const getCoordinates = (data) => {
+const getCoordinates = (data, minValue = undefined, maxValue = undefined) => {
   let minX = 10;
   let maxX = 290; // 300 - 10
   let minY = 65;  // 75 - 10
@@ -20,8 +20,15 @@ const getCoordinates = (data) => {
   // X axis is easy: just evenly-space each item in the array.
   // For the Y axis, we first need to find the min and max of our array,
   // and then normalize those values between 0 and 1.
+
+  if (minValue === undefined) {
+    minValue = Math.min(...data);
+  }
+  if (maxValue === undefined) {
+    maxValue = Math.max(...data);
+  }
   let boundariesX = { min: 0, max: data.length - 1 };
-  let boundariesY = { min: Math.min(...data), max: Math.max(...data) };
+  let boundariesY = { min: minValue, max: maxValue };
 
   let normalizedData = data.map((point, index) => ({
     x: normalize({
@@ -95,8 +102,8 @@ const bezierCommand = (point, i, a, smoothness) => {
 
 const lineCommand = point => `L ${point.x} ${point.y}`;
 
-export default function path({points, type, smoothness }) {
-  let coords = getCoordinates(points);
+export default function path({points, type, smoothness, minY, maxY}) {
+  let coords = getCoordinates(points, minY, maxY);
 
   let command = type === 'line' ? lineCommand : bezierCommand;
 
