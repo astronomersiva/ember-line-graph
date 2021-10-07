@@ -9,6 +9,7 @@ export default Component.extend({
   type: 'line',
   minY: undefined,
   maxY: undefined,
+  fillOpacity: 1,
   svgWidth: computed('width', function() {
     return this.getWithDefault('width', '100%');
   }),

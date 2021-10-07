@@ -39,6 +39,8 @@ Usage
 * **points** - an array of values, example - `[1, 10, 45, 3, 4, 6]`.
 * **strokeWidth** - width of the SVG path stroke.
 * **strokeOpacity** - opacity of the line in the chart. A number between 0 and 1.
+* **shouldFill** - a boolean to indicate if the graph has to be shaded, defaults to `false`.
+* **fillOpacity** - opacity of the filled color. A number between 0 and 1, defaults to `0.5`.
 * **strokeLinecap** - Specifies the ending style of the line path. One of `butt`, `round` or `square`.
 * **strokeDasharray** - Controls the pattern of dashes and gaps used to stroke paths. Refer [MDN Docs](https://developer.mozilla.org/en-US/docs/Web/SVG/Attribute/stroke-dasharray). Not recommended to use this with animation as the animation will first draw a undashed path and the chart will then turn to dashes.
 * **type** - `line`(default) or `smooth`.

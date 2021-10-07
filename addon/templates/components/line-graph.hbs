@@ -2,6 +2,7 @@
 <svg
   width={{svgWidth}}
   height={{svgHeight}}
+  fill-opacity={{fillOpacity}}
   stroke-width={{strokeWidth}}
   stroke-opacity={{strokeOpacity}}
   stroke-linecap={{strokeLinecap}}
@@ -27,7 +28,7 @@
   <path
     style={{style}}
     id="ember-line-graph-path-{{graphId}}"
-    fill="none"
+    fill={{if shouldFill (concat "url(#ember-line-graph-" graphId ")") "none"}}
     stroke="url(#ember-line-graph-{{graphId}})"
     d={{dataPoints}}
   />
